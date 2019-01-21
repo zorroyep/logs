@@ -1,0 +1,5 @@
+在使用git 的ssh功能时，我们可以使用ssh-keygen -t rsa -b 4096 -C "your_email@example.com"命令来生成ssh的公钥和私钥。命令完成后，会生成两个文件，id_rsa，
+id_rsa.pub。注意id_rsa是你的私钥，不要给别人。
+生成私钥过程中，你可以配置生成密钥的文件夹位置，也可以使用默认配置。当你使用新位置的话，在使用ssh连接时，需要进行以下配置。
+1，先把sshkey添加到ssh agent上：eval $(ssh-agent -s)。
+2，再把ssh的私钥添加到ssh配置里：ssh-add ~/.ssh/id_rsa（这时修改成你的ssh私钥的位置，可用绝对位置，也可用相当位置）
